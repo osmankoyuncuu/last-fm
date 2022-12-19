@@ -1,5 +1,3 @@
-import Card from "./Card";
-
 const Header = ({ header }) => {
   return (
     <div className="w-48 h-10 bg-slate-400 flex justify-center items-center rounded-md">
