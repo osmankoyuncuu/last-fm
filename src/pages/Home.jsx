@@ -25,7 +25,6 @@ const Home = () => {
       dispatch(fetchError());
     }
   };
-  console.log(topArtists);
   useEffect(() => {
     getTopArtists();
   }, []);
@@ -33,7 +32,7 @@ const Home = () => {
   return (
     <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90">
       <Header header={"Top Artist List"} />
-      <div className="bg-lime-200 mt-3 w-96 h-2/3 flex flex-col border border-black rounded-md p-2 gap-2 overflow-auto">
+      <div className="bg-lime-200 dark:bg-gray-900 mt-3 w-96 h-2/3 flex flex-col border border-black rounded-md p-2 gap-2 overflow-auto">
         {topArtists?.map((artist, index) => (
           <Card {...artist} key={index} />
         ))}
