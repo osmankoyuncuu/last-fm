@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../component/Card";
+import TopArtistsCard from "../component/TopArtistsCard";
 import Header from "../component/Header";
 import {
   fetchError,
@@ -34,7 +34,7 @@ const Home = () => {
       <Header header={"Top Artist List"} />
       <div className="bg-lime-200 dark:bg-gray-900 mt-3 w-96 h-2/3 flex flex-col border border-black rounded-md p-2 gap-2 overflow-auto">
         {topArtists?.map((artist, index) => (
-          <Card {...artist} key={index} />
+          <TopArtistsCard {...artist} key={index} />
         ))}
       </div>
     </div>

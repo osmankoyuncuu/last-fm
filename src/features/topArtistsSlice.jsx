@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   topArtists: [],
+  topAlbums: [],
+  topTracks: [],
   loading: false,
   error: false,
 };
@@ -21,8 +23,22 @@ const topArtistsSlice = createSlice({
       state.error = true;
       state.loading = false;
     },
+    fetchTopAlbumsSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.topAlbums = payload;
+    },
+    fetchTopTracksSuccess: (state, { payload }) => {
+      state.loading = false;
+      state.topTracks = payload;
+    },
   },
 });
 
-export const { fetchStart, fetchSuccess, fetchError } = topArtistsSlice.actions;
+export const {
+  fetchStart,
+  fetchSuccess,
+  fetchError,
+  fetchTopAlbumsSuccess,
+  fetchTopTracksSuccess,
+} = topArtistsSlice.actions;
 export default topArtistsSlice.reducer;
