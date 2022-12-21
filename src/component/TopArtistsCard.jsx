@@ -4,7 +4,7 @@ const TopArtistsCard = ({ image, name, listeners, playcount }) => {
 
   return (
     <div
-      className="border border-black w-full flex px-2 py-4 gap-3 bg-lime-100 dark:bg-gray-800 dark:text-white cursor-pointer"
+      className="border border-black w-full flex px-2 py-4 gap-3 bg-lime-100 dark:bg-gray-800 dark:text-white cursor-pointer hover:shadow-2xl"
       onClick={() => navigate(`details/${name}`, { state: image })}
     >
       <img src={image[2]["#text"]} alt="" width={"75px"} />
