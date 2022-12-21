@@ -5,3 +5,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+::-webkit-scrollbar {
+  background: white;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 0.5rem;
+}
