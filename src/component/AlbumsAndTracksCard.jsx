@@ -1,7 +1,11 @@
-const AlbumsAndTracksCard = (item) => {
-  const { artist, name, image, playcount, listeners } = item;
+const AlbumsAndTracksCard = (item, loading) => {
+  const { artist, name, image, playcount, listeners, url } = item;
+  //console.log(loading);
   return (
-    <div className="w-full border border-black h-20 py-10 px-2 flex items-center justify-between ">
+    <a
+      href={url}
+      className="w-full border border-black h-20 py-10 px-2 flex items-center justify-between hover:shadow-2xl dark:hover:shadow-white dark:hover:shadow-md cursor-pointer "
+    >
       <div className="flex gap-5 items-center w-2/3">
         <img src={image[2]["#text"]} alt="" width={"50px"} />
         <div>
@@ -25,7 +29,7 @@ const AlbumsAndTracksCard = (item) => {
           play
         </p>
       </div>
-    </div>
+    </a>
   );
 };
 

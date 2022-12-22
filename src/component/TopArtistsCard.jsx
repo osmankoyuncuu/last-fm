@@ -4,17 +4,19 @@ const TopArtistsCard = ({ image, name, listeners, playcount }) => {
 
   return (
     <div
-      className="border border-black w-full flex px-2 py-4 gap-3 bg-lime-100 dark:bg-gray-800 dark:text-white cursor-pointer hover:shadow-2xl"
+      className="border border-black w-full flex flex-col sm:flex-row items-center px-2 py-4 gap-3 bg-lime-100 dark:bg-gray-800 dark:text-white cursor-pointer hover:shadow-2xl"
       onClick={() => navigate(`details/${name}`, { state: image })}
     >
       <img src={image[2]["#text"]} alt="" width={"75px"} />
-      <div className="flex justify-between gap-3 w-full">
-        <div className="w-1/3">
+      <div className="flex flex-col items-center sm:flex-row sm:justify-between gap-3 w-full">
+        <div className="w-full sm:w-1/3 text-center sm:text-left">
           <h5>Artist</h5>
           <div className="border border-b-black"></div>
-          <h2 className="font-bold flex flex-wrap">{name}</h2>
+          <h2 className="font-bold flex flex-wrap justify-center sm:text-left">
+            {name}
+          </h2>
         </div>
-        <div className="flex justify-center flex-col text-sm ">
+        <div className="flex sm:justify-center sm:flex-col text-sm items-center">
           <div className="flex gap-1">
             <div>
               <p>listeners</p>

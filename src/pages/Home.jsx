@@ -2,14 +2,10 @@ import TopArtistsCard from "../component/TopArtistsCard";
 import Header from "../component/Header";
 import { useInfiniteQuery } from "react-query";
 import { topArtistFetch } from "../hook/api";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 const Home = () => {
   const scrollRef = useRef(null);
-
-  console.log(scrollRef?.current);
-  console.log(scrollRef?.current?.scrollHeight);
-  console.log(scrollRef?.current?.scrollHeight);
 
   const loadNewArtists = async () => {
     const heightOfScroll = scrollRef.current.scrollHeight - 40;
@@ -39,10 +35,10 @@ const Home = () => {
   if (status === "error") return "An error has occurred: " + error.message;
 
   return (
-    <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90">
+    <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90 pt-8">
       <Header header={"Top Artist List"} />
       <div
-        className="bg-lime-200 dark:bg-gray-900 mt-3  w-96 h-3/4 overflow-auto  border border-black rounded-md p-2"
+        className="bg-lime-200 dark:bg-gray-900 mt-3 w-64 sm:w-96 h-3/4 overflow-auto  border border-black rounded-md p-2"
         id="scrollableDiv"
         ref={scrollRef}
         onScroll={loadNewArtists}
@@ -52,7 +48,9 @@ const Home = () => {
             group?.map((item, i) => <TopArtistsCard {...item} key={i} />)
           )}
         </div>
-        {isFetchingNextPage && <h4 className="flex justify-end">...Loading</h4>}
+        {isFetchingNextPage && (
+          <h4 className="flex justify-end dark:text-white">...Loading</h4>
+        )}
         <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
       </div>
     </div>
