@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { reverseDarkMode } from "../features/darkModeSlice";
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("color-theme") === "dark" ? true : false
-  );
+  const { darkMode } = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
 
   const darkHandle = () => {
-    setDarkMode(!darkMode);
+    dispatch(reverseDarkMode(!darkMode));
     darkMode
       ? localStorage.setItem("color-theme", "")
       : localStorage.setItem("color-theme", "dark");
@@ -18,6 +18,7 @@ const Navbar = () => {
   } else {
     document.documentElement.classList.remove("dark");
   }
+
   return (
     <nav className=" px-5 py-2 fixed w-screen z-10">
       <div className="flex justify-between">
