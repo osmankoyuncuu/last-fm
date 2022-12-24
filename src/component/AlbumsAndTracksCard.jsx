@@ -1,6 +1,5 @@
 const AlbumsAndTracksCard = (item, loading) => {
   const { artist, name, image, playcount, listeners, url } = item;
-  //console.log(loading);
   return (
     <a
       href={url}
