@@ -2,13 +2,18 @@ import { useLocation, useParams } from "react-router-dom";
 import AlbumsAndTracksCard from "../component/AlbumsAndTracksCard";
 import { useQuery } from "react-query";
 import { topAlbumsFetch, topTracksFetch } from "../hook/api";
+import { useEffect } from "react";
 
-const Details = () => {
+const Details = ({ setPathname }) => {
   const { name } = useParams();
   const { state: image } = useLocation();
 
   const resultAlbums = useQuery("topAlbums", () => topAlbumsFetch(name));
   const resultTracks = useQuery("topTracks", () => topTracksFetch(name));
+
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
 
   return (
     <div className="flex justify-center items-center h-screen ">

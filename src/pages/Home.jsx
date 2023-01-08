@@ -2,9 +2,9 @@ import TopArtistsCard from "../component/TopArtistsCard";
 import Header from "../component/Header";
 import { useInfiniteQuery } from "react-query";
 import { topArtistFetch } from "../hook/api";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-const Home = () => {
+const Home = ({ setPathname }) => {
   const scrollRef = useRef(null);
 
   const loadNewArtists = async () => {
@@ -30,6 +30,10 @@ const Home = () => {
       return allGroups.length + 1;
     },
   });
+
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
 
   if (status === "loading") return "Loading...";
   if (status === "error") return "An error has occurred: " + error.message;

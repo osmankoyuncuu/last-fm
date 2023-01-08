@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { reverseDarkMode } from "../features/darkModeSlice";
 
-const Navbar = () => {
+const Navbar = ({ pathname, setPathname }) => {
   const { darkMode } = useSelector((state) => state.darkMode);
   const dispatch = useDispatch();
 
@@ -21,10 +22,16 @@ const Navbar = () => {
 
   return (
     <nav className=" px-5 py-2 fixed w-screen z-10">
-      <div className="flex justify-between">
-        <Link to="/" className="text-white font-semibold text-xl">
-          Go Back
-        </Link>
+      <div
+        className={`flex ${
+          pathname === "/" ? "justify-end" : "justify-between"
+        }`}
+      >
+        {pathname !== "/" && (
+          <Link to="/" className="text-white font-semibold text-xl">
+            Go Back
+          </Link>
+        )}
         <button
           type="button"
           title="Toggle dark/light mode"
