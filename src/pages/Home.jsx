@@ -39,10 +39,10 @@ const Home = ({ setPathname }) => {
   if (status === "error") return "An error has occurred: " + error.message;
 
   return (
-    <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90 pt-8">
+    <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90">
       <Header header={"Top Artist List"} />
       <div
-        className="bg-lime-200 dark:bg-gray-900 mt-3 w-64 sm:w-96 h-3/4 overflow-auto  border border-black rounded-md p-2"
+        className="bg-lime-200 dark:bg-gray-900 mt-3 w-72  h-3/4 sm:w-[30rem]  overflow-auto  border border-black rounded-md p-2"
         id="scrollableDiv"
         ref={scrollRef}
         onScroll={loadNewArtists}

@@ -17,7 +17,7 @@ const Details = ({ setPathname }) => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-      <div className="border border-black w-3/5 h-4/5 p-5 bg-lime-200 dark:bg-gray-900 opacity-90  rounded-md overflow-hidden">
+      <div className="border border-black mx-5 xl:w-3/5 h-[36rem] p-4 bg-lime-200 dark:bg-gray-900 opacity-90  rounded-md ">
         <div className="flex gap-10 items-center w-full border border-black p-2 bg-lime-100 dark:bg-gray-800 dark:text-white">
           {resultAlbums?.isLoading ? (
             <h3>Loading..</h3>
@@ -31,12 +31,12 @@ const Details = ({ setPathname }) => {
           )}
         </div>
 
-        <div className="mt-3 flex gap-10 dark:text-white ">
+        <div className="mt-3 flex gap-6 dark:text-white ">
           <div className="w-1/2 ">
             <h3 className=" border-b border-black dark:border-white font-bold mb-2">
               Top Albums
             </h3>
-            <div className="flex flex-col gap-3 overflow-auto h-screen ">
+            <div className="flex flex-col gap-3 overflow-auto h-96 pb-1">
               {resultAlbums?.data?.map((item, index) => (
                 <AlbumsAndTracksCard
                   key={index}
@@ -50,7 +50,7 @@ const Details = ({ setPathname }) => {
             <h3 className=" border-b border-black dark:border-white font-bold mb-2">
               Top Tracks
             </h3>
-            <div className="flex flex-col gap-3  overflow-auto h-screen">
+            <div className="flex flex-col gap-3 overflow-auto h-96 pb-1">
               {resultTracks?.data?.map((item, index) => (
                 <AlbumsAndTracksCard
                   key={index}

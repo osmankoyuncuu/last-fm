@@ -9,12 +9,10 @@ const TopArtistsCard = ({ image, name, listeners, playcount }) => {
     >
       <img src={image[2]["#text"]} alt="" width={"75px"} />
       <div className="flex flex-col items-center sm:flex-row sm:justify-between gap-3 w-full">
-        <div className="w-full sm:w-1/3 text-center sm:text-left">
+        <div className="w-full sm:w-2/4 text-center sm:text-left">
           <h5>Artist</h5>
           <div className="border border-b-black"></div>
-          <h2 className="font-bold flex flex-wrap justify-center sm:text-left">
-            {name}
-          </h2>
+          <h2 className="font-bold justify-center sm:text-left">{name}</h2>
         </div>
         <div className="flex sm:justify-center sm:flex-col text-sm items-center">
           <div className="flex gap-1">
