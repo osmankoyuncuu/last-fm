@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import Details from "../pages/Details";
@@ -6,7 +6,6 @@ import Home from "../pages/Home";
 
 const AppRouter = () => {
   const [pathname, setPathname] = useState("");
-  console.log(pathname);
 
   return (
     <BrowserRouter>

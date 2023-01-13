@@ -35,9 +35,6 @@ const Home = ({ setPathname }) => {
     setPathname(window.location.pathname);
   }, []);
 
-  if (status === "loading") return "Loading...";
-  if (status === "error") return "An error has occurred: " + error.message;
-
   return (
     <div className="flex items-center justify-center flex-col w-screen h-screen opacity-90">
       <Header header={"Top Artist List"} />
@@ -47,15 +44,28 @@ const Home = ({ setPathname }) => {
         ref={scrollRef}
         onScroll={loadNewArtists}
       >
-        <div className="flex flex-col gap-4">
-          {data?.pages.map((group, i) =>
-            group?.map((item, i) => <TopArtistsCard {...item} key={i} />)
-          )}
-        </div>
-        {isFetchingNextPage && (
-          <h4 className="flex justify-end dark:text-white">...Loading</h4>
+        {status === "error" && <h2>An error has occurred:{error.message}</h2>}
+        {status === "loading" ? (
+          <h2 className="text-black dark:text-white">Loading..</h2>
+        ) : (
+          <>
+            <div className="flex flex-col gap-4">
+              {data?.pages.map((group, i) =>
+                group?.map((item, i) => <TopArtistsCard {...item} key={i} />)
+              )}
+            </div>
+            {isFetchingNextPage && (
+              <h4 className="flex justify-end dark:text-white">...Loading</h4>
+            )}
+            <div>
+              {isFetching && !isFetchingNextPage ? (
+                <h2 className="flex justify-end dark:text-white">
+                  Fetching...
+                </h2>
+              ) : null}
+            </div>
+          </>
         )}
-        <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
       </div>
     </div>
   );

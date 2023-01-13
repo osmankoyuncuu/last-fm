@@ -68,7 +68,7 @@ const Navbar = ({ pathname, setPathname }) => {
           </button>
         </div>
       </nav>
-      <div className="h-[10px]"></div>
+      {/*<div className="h-[100px] md:h-0"></div>*/}
     </>
   );
 };
